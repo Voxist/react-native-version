@@ -207,7 +207,7 @@ function version(program, projectPath) {
 							? programOpts.setBuild
 							: parseInt(cg1, 10) + 1;
 
-						return "verCode " + newVersionCodeNumber;
+						return "verCode = " + newVersionCodeNumber;
 					});
 				}
 			}
