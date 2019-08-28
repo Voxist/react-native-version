@@ -178,8 +178,8 @@ function version(program, projectPath) {
 
 			if (!programOpts.incrementBuild && !isExpoApp) {
 				gradleFile = gradleFile.replace(
-					/versionName (["'])(.*)["']/,
-					"versionName $1" + appPkg.version + "$1"
+					/verName = (["'])(.*)["']/,
+					"verName = $1" + appPkg.version + "$1"
 				);
 			}
 
@@ -199,7 +199,7 @@ function version(program, projectPath) {
 						})
 					});
 				} else {
-					gradleFile = gradleFile.replace(/versionCode (\d+)/, function(
+					gradleFile = gradleFile.replace(/verCode = (\d+)/, function(
 						match,
 						cg1
 					) {
@@ -207,7 +207,7 @@ function version(program, projectPath) {
 							? programOpts.setBuild
 							: parseInt(cg1, 10) + 1;
 
-						return "versionCode " + newVersionCodeNumber;
+						return "verCode " + newVersionCodeNumber;
 					});
 				}
 			}
